@@ -1,5 +1,8 @@
 require("dotenv").config();
 const express = require("express");
+const { getLinkResult } = require("../controller/user.controller");
+
+
 const router = express.Router();
 const ROUTER = {
   INDEX: '/',
@@ -80,7 +83,10 @@ const home = router.get(ROUTER.INDEX, (req, res) => {
       <p>METHOD POST</p>
       <p>SEND LINK FACEBOOK</p>
       <p>SEND EMAIL</p>
-    <p>COPY LINK TO CLIPBOARD</p>
+    <p>
+    COPY LINK TO CLIPBOARD
+    <a href="https://filum-be-interview.vercel.app/get-link?user=quang@gmail.com&level=5"> Example: Click me !</a>  
+    </p>
     </header>
     <footer>
         <h4 style="color: #08315e;">Filum.ai</h4>
@@ -99,15 +105,13 @@ const mail = router.post(ROUTER.SEND_MAIL, (req, res) => {
   res.status(200).send("API Here !!");
 });
 
-const link = router.get(ROUTER.GET_LINK, (req, res) => {
-  res.status(200).send("API Here !!");
-});
+const link = router.get(ROUTER.GET_LINK, getLinkResult);
 const facebook = router.get(ROUTER.SHARE_FACEBOOK, (req, res) => {
   res.status(200).send("API Here !!");
 });
 
 function route(app) {
-  app.use(home);
+  app.use(home)
   app.use(mail)
   app.use(link)
   app.use(facebook)

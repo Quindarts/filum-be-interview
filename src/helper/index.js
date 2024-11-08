@@ -1,20 +1,22 @@
-export function findLevelImg(level) {
+module.exports = function findLevelImg(level) {
+  let imgURL = ''
   switch (level) {
     case "1":
-      imageUrl = "https://res-console.cloudinary.com/dyd2nynrp/thumbnails/v1/image/upload/v1731062043/MV9xM2poeGQ=/drilldown";
+      imgURL = "https://res.cloudinary.com/dyd2nynrp/image/upload/v1731062043/1_q3jhxd.png";
       break;
     case "2":
-      imageUrl = "https://res-console.cloudinary.com/dyd2nynrp/thumbnails/v1/image/upload/v1731062042/Ml9pcXpjbnM=/drilldown";
+      imgURL = "https://res.cloudinary.com/dyd2nynrp/image/upload/c_fill,g_auto,h_250,w_970/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative,l_text:montserrat_25_style_light_align_center:Shop%20Now,w_0.5,y_0.18/v1731062042/2_iqzcns.png";
 
       break;
     case "3":
-      imageUrl = "https://res-console.cloudinary.com/dyd2nynrp/thumbnails/v1/image/upload/v1731062043/M19kaHJoanI=/drilldown";
+      imgURL = "https://res.cloudinary.com/dyd2nynrp/image/upload/v1731062043/3_dhrhjr.png";
       break;
     case "4":
-      imageUrl = "https://res-console.cloudinary.com/dyd2nynrp/thumbnails/v1/image/upload/v1731062042/NF9sZTJ6MmM=/drilldown";
+      imgURL = "https://res.cloudinary.com/dyd2nynrp/image/upload/v1731062042/4_le2z2c.png";
       break;
     case "5":
-      imageUrl = "https://res-console.cloudinary.com/dyd2nynrp/thumbnails/v1/image/upload/v1731062042/NV9xc2wybTU=/drilldown";
+      imgURL = "https://res.cloudinary.com/dyd2nynrp/image/upload/v1731062042/5_qsl2m5.png";
       break;
   }
+  return imgURL
 }
