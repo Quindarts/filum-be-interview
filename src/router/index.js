@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const { getLinkResult } = require("../controller/user.controller");
+const { getLinkResult, getShareFaceBook } = require("../controller/user.controller");
 
 
 const router = express.Router();
@@ -8,7 +8,7 @@ const ROUTER = {
   INDEX: '/',
   GET_LINK:'/get-link',
   SEND_MAIL:'/send-mail',
-  SHARE_FACEBOOK:'/share-facebook',
+  SHARE_FACEBOOK:'/share-facebook/:email',
 }
 const home = router.get(ROUTER.INDEX, (req, res) => {
   res.status(200).send(`<!doctype html>
@@ -106,9 +106,8 @@ const mail = router.post(ROUTER.SEND_MAIL, (req, res) => {
 });
 
 const link = router.get(ROUTER.GET_LINK, getLinkResult);
-const facebook = router.get(ROUTER.SHARE_FACEBOOK, (req, res) => {
-  res.status(200).send("API Here !!");
-});
+
+const facebook = router.get(ROUTER.SHARE_FACEBOOK, getShareFaceBook);
 
 function route(app) {
   app.use(home)
