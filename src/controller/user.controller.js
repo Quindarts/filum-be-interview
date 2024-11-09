@@ -1,5 +1,5 @@
-const  findLevelImg = require('../helper/index');
-const transporter = require('../config');
+const findLevelImg = require("../helper/index");
+const transporter = require("../config");
 
 const sendEmail = async (req, res) => {
   try {
@@ -8,7 +8,8 @@ const sendEmail = async (req, res) => {
     const mailOptions = {
       from: "chrisnguuyen193@gmail.com",
       to: email,
-      subject: 'Filum.ai: Đánh giá mức độ trưởng thành về quản trị trải nghiệm khách hàng',
+      subject:
+        "Filum.ai: Đánh giá mức độ trưởng thành về quản trị trải nghiệm khách hàng",
       html: `
   <!doctype html>
   <html lang="en">
@@ -140,23 +141,23 @@ const sendEmail = async (req, res) => {
   </body>
 </html>
     `,
-  };
+    };
 
-  await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions);
 
-  return res.status(200).json({
-    status: 200,
-    success: true,
-    message: `Gửi đến email ${email} thành công !`
-   });
+    return res.status(200).json({
+      status: 200,
+      success: true,
+      message: `Gửi đến email ${email} thành công !`,
+    });
   } catch (error) {
     res.status(500).json({ message: "Có lỗi, vui lòng thử lại sau" });
   }
 };
 const getShareFaceBook = async (req, res) => {
   try {
-    const {  level } = req.query;
-    const { email }= req.params;
+    const { level } = req.query;
+    const { email } = req.params;
     const img = findLevelImg(level);
     return res.status(200).send(`
   <!doctype html>
@@ -288,7 +289,7 @@ const getShareFaceBook = async (req, res) => {
     </div>
   </body>
 </html>
-`)
+`);
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
   }
@@ -429,8 +430,7 @@ const getLinkResult = async (req, res) => {
 </html>
 
 
-`)
-
+`);
   } catch (error) {
     console.log("🚀 ~ sendLink ~ error:", error);
     res.status(500).json({ message: "Internal server error" });
